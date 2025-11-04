@@ -9,6 +9,10 @@ Criar um código 👍
 >> matriz de tarefas x máquinas
 >>
 >> função para calcular o makespan
+>> 
+>> 2 tarefas
+>>
+>> Muitas máquinas -> número de máquinas
 - CROMOSSOMOS
 >> Criação aleatória do cromossomo
 >>
