@@ -7,6 +7,7 @@ Criar um código 👍
 
 - MAKESPAN (makespan.c)
 >> matriz de tarefas x máquinas
+>>
 >> função para calcular o makespan
 - CROMOSSOMOS
 - ROLETA DE AVALIAÇÃO
