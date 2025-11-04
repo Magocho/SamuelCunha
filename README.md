@@ -18,5 +18,7 @@ Criar um código 👍
 - ROLETA DE AVALIAÇÃO
 >> Estrutura de armazenamento da população
 >>
->> 
+>> Função de seleção dos melhores
 - CRITÉRIO DE FINALIZAÇÃO
+>> Isso fica de reserva, acho
+>>
