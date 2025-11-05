@@ -1,0 +1,26 @@
+# depslib dependency file v1.0
+1762267817 source:c:\users\aluno\documents\ahg\ahg\main.c
+	"definicoes.h"
+
+1762267678 c:\users\aluno\documents\ahg\ahg\definicoes.h
+	<time.h>
+	<stdio.h>
+	<stdlib.h>
+
+1762267770 source:c:\users\aluno\documents\ahg\ahg\makespan.c
+	"definicoes.h"
+
+1762308506 source:c:\users\lucas\documents\github\samuelcunha\ahg\makespan.c
+	"definicoes.h"
+
+1762308550 c:\users\lucas\documents\github\samuelcunha\ahg\definicoes.h
+	<stdio.h>
+	<stdlib.h>
+	<stdbool.h>
+	<math.h>
+	<time.h>
+	<assert.h>
+
+1762308410 source:c:\users\lucas\documents\github\samuelcunha\ahg\main.c
+	"definicoes.h"
+
