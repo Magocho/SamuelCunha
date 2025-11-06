@@ -12,6 +12,8 @@
 #include <assert.h> // Para ERROS graves!
 
 #define QUANTIDADE_TAREFA 2 // Pela definição SÓ vamos receber 2 tarefas!
+#define NAO_TEM_FITNESS_AINDA -7 // Por conveniência
+#define FILHOS_POR_CROSSOVER 2 // Por conveniência
 /*
 
 */
@@ -41,6 +43,7 @@ typedef struct cabeca_matriz2{
 #define VERMELHO "\033[0;31m"
 #define BRANCO "\033[1;37m"
 #define ROXO "\033[0;35m"
+#define VERDE "\033[0;32m"
 
 typedef struct matriz{
     struct matriz* prox_tarefa; // aponta para próxima tarefa
@@ -54,18 +57,22 @@ typedef struct{
     int total_de_tarefa;
 } Cabecca_Matriz;
 
-typedef struct{ // PROVISÓRIO -------> MUDAR MUITO!
-    int fitness;
+typedef struct cromossomos{ // PROVISÓRIO -------> MUDAR MUITO!
+    int fitness; // TCC makespan
     int* genes;
-} Hernando_e_familia;
+} individuo;
 
-//************** MAKESPAN.C ********************* para mais detalhes veja o makespan.c
+//************** MAKESPAN.C ********************* para mais detalhes veja os .c
 Tarefa_Matriz* cria_matriz_Maquina_Tarefa(int numero_maquina, int numero_tarefa); // Aloca o espaço para a matriz de acordo com as máquinas
-bool coloca_tempo_tarefa(Cabecca_Matriz** Matriz, int tarefaUM, int tarefaDOIS, int indice_MAQ); // Meio ruim, mas funciona
+bool coloca_tempo_tarefa(Cabecca_Matriz** Matriz, int* fila_tarefa, int qtde_tarefa, int indice_MAQ); // Versão para mais tarefas
 int makespan_de_uma_sequencia(int* seq_tarefa, int** matriz_suporte, Cabecca_Matriz** Matriz); // Acho que funciona bem
 
 void imprime_matriz_TESTE(Cabecca_Matriz** Matriz); // Isso é para testes.
 
-
+//************** CROMOSSOMOS.C *********************
+individuo* cria_aleatoriamente(int numero_de_tarefas);
+individuo* cruzamento(individuo* pai, individuo* mae, int numero_de_tarefa);
+void mutacCao(individuo* teste, int numero_de_tarefa);
+void imprime_individo_TESTE(individuo* teste, int numero_de_tarefa);
 
 #endif // DEFINICOES_H_INCLUDED

@@ -80,12 +80,17 @@ Tarefa_Matriz* cria_matriz_Maquina_Tarefa(int numero_maquina, int numero_tarefa)
     return primeiro;
 }
 
-bool coloca_tempo_tarefa(Cabecca_Matriz** Matriz, int tarefaUM, int tarefaDOIS, int indice_MAQ){ // Não gostei dessa função, muita vagabundice nela...
+bool coloca_tempo_tarefa(Cabecca_Matriz** Matriz, int* fila_tarefa, int qtde_tarefa, int indice_MAQ){ // Não gostei dessa função, muita vagabundice nela...
     Tarefa_Matriz* aux = (*Matriz)->fila_tarefa;
     if(indice_MAQ >= (*Matriz)->total_de_maquina)
         return false;
-    aux->pMaquina[indice_MAQ] = tarefaUM;
-    aux->prox_tarefa->pMaquina[indice_MAQ] = tarefaDOIS;
+
+    int i;
+    for(i = 0; i < qtde_tarefa; i++){
+        assert(aux != NULL);
+        aux->pMaquina[indice_MAQ] = fila_tarefa[i];
+        aux = aux->prox_tarefa;
+    }
     return true;
 }
 
@@ -112,7 +117,7 @@ int makespan_de_uma_sequencia(int* seq_tarefa, int** matriz_suporte, Cabecca_Mat
         suporte[index_matriz(i, 0, TT)] = retorna_valor_da_matriz(aux, i, seq_tarefa[0]);
 
     for(i = 1; i < (*Matriz)->total_de_tarefa; i++)
-        suporte[index_matriz(0, i, TT)] = retorna_valor_da_matriz(aux, 0, seq_tarefa[i]);
+        suporte[index_matriz(0, i, TT)] = retorna_valor_da_matriz(aux, 0, seq_tarefa[i]) + suporte[index_matriz(0, i - 1, TT)];
 
     for(i = 1; i < (*Matriz)->total_de_maquina; i++){
         for(j = 1; j < (*Matriz)->total_de_tarefa; j++){
@@ -130,10 +135,11 @@ void imprime_matriz_TESTE(Cabecca_Matriz** Matriz){
     int i;
     for(i = 0; i < (*Matriz)->total_de_maquina; i++){
         printf(BRANCO"\n\t");
+        ref = aux;
         while(ref != NULL){
             printf(BRANCO"%d ", ref->pMaquina[i]);
             ref = ref->prox_tarefa;
         }
-        ref = aux;
     }
+    printf(BRANCO"\n");
 }
