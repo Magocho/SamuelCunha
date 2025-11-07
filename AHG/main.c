@@ -60,8 +60,60 @@ int main(){
         //***********************************************************
 
         // Testes
-
         imprime_matriz_TESTE(&mMatriz);
+
+        populacCao* tribo = cria_populacCao_inicial(25, mMatriz->total_de_tarefa, &mMatriz, &aux_matriz);
+        ordenador(tribo);
+        imprime_tudo_TESTE(tribo);
+
+        int n = 0;
+        while(n < 3){
+            if(ciclo_populacCao(tribo, &mMatriz, &aux_matriz)){
+                printf("FOi");
+                imprime_tudo_TESTE(tribo);
+                //continue;
+            }
+            else{
+                ANDAR_COM_FE_VOU_POIS_NAO_COSTUMA_FAIAR(tribo);
+                THANOS_tinha_razao(tribo);
+                n++;
+            }
+        };
+        imprime_tudo_TESTE(tribo);
+
+        printf("----------------------- DEU CERTO? -----------------------------+\n");
+        imprime_individo_TESTE(tribo->darwin_boy, mMatriz->total_de_tarefa);
+
+        //assert(tribo->darwin_boy != NULL);
+        printf("\t> Melhor: %d\n" , tribo->darwin_boy->fitness);
+
+        AO_JAIRO_COM_LOVE(tribo);
+
+        /*
+        imprime_matriz_TESTE(&mMatriz); // funcionou não sei o por que...
+        int ahahaha = 7;
+        individuo* teste[ahahaha];
+        int k = 0;
+        double soma = 0;
+        for(k = 0; k < ahahaha; k++){
+                teste[k] = cria_aleatoriamente(mMatriz->total_de_tarefa);
+                imprime_individo_TESTE(teste[k], mMatriz->total_de_tarefa);
+                teste[k]->fitness = makespan_de_uma_sequencia(teste[k]->genes, &aux_matriz, &mMatriz);
+                printf("\t> Seq%d: %d\n", k, teste[k]->fitness);
+                calcula_porcentagem(teste[k]);
+                printf("\t> %lf%%\n", teste[k]->porcentagem);
+                soma += teste[k]->porcentagem;
+
+        }
+
+        //normaliza_porcentagem(&teste, ahahaha);
+
+        for(k = 0; k < ahahaha; k++){
+                printf("\t> %lf%%\n", teste[k]->porcentagem);
+                soma += teste[k]->porcentagem;
+        }
+
+        printf("\t>final %lf%%\n", soma);
 
         individuo* teste1 = cria_aleatoriamente(mMatriz->total_de_tarefa);
         individuo* teste2 = cria_aleatoriamente(mMatriz->total_de_tarefa);
@@ -80,6 +132,7 @@ int main(){
         imprime_individo_TESTE(&filhos[0], mMatriz->total_de_tarefa);
         imprime_individo_TESTE(&filhos[1], mMatriz->total_de_tarefa);
         printf("\t> Seq1x2M: %d\n\t> Seq2x1M: %d\n", makespan_de_uma_sequencia(teste1->genes, &aux_matriz, &mMatriz),makespan_de_uma_sequencia(teste2->genes, &aux_matriz, &mMatriz));
+        */
     }
 
     else printf("\n\t>> Infelizmente ainda nao estah terminado o progama...\n\t\t obrigado por ler!\n");

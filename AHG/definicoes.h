@@ -6,6 +6,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdbool.h>
 #include <math.h>
 #include <time.h>
@@ -59,8 +60,19 @@ typedef struct{
 
 typedef struct cromossomos{ // PROVISÓRIO -------> MUDAR MUITO!
     int fitness; // TCC makespan
+    double porcentagem; // Para a roleta
     int* genes;
 } individuo;
+
+typedef struct grupo{
+    individuo** individuo;
+    double soma_dos_fitness;
+    int qtde_de_individuo;
+    int qtde_de_individuo_ocupado;
+    int qtde_de_tarefas; //redundante talvez;
+    individuo* darwin_boy;
+    bool precisa_ordenar;
+} populacCao;
 
 //************** MAKESPAN.C ********************* para mais detalhes veja os .c
 Tarefa_Matriz* cria_matriz_Maquina_Tarefa(int numero_maquina, int numero_tarefa); // Aloca o espaço para a matriz de acordo com as máquinas
@@ -71,8 +83,20 @@ void imprime_matriz_TESTE(Cabecca_Matriz** Matriz); // Isso é para testes.
 
 //************** CROMOSSOMOS.C *********************
 individuo* cria_aleatoriamente(int numero_de_tarefas);
-individuo* cruzamento(individuo* pai, individuo* mae, int numero_de_tarefa);
+individuo** cruzamento(individuo* pai, individuo* mae, int numero_de_tarefa);
 void mutacCao(individuo* teste, int numero_de_tarefa);
+void mata_alguem(individuo* quem_quero_matar);
+
 void imprime_individo_TESTE(individuo* teste, int numero_de_tarefa);
 
+//************** ROLETA_VIDA.C *********************
+populacCao* cria_populacCao_inicial(int qtde_da_amostra_inicial, int qtde_tarefa, Cabecca_Matriz** mMatriz, int** auxiliar);
+bool ciclo_populacCao(populacCao* amostra, Cabecca_Matriz** mMatriz, int** auxiliar);
+void THANOS_tinha_razao(populacCao* amostra);
+void AO_JAIRO_COM_LOVE(populacCao* amostra);
+bool ANDAR_COM_FE_VOU_POIS_NAO_COSTUMA_FAIAR(populacCao* amostra);
+void ordenador(populacCao* amostra);
+
+void calcula_porcentagem_TESTE(individuo* novo);
+void imprime_tudo_TESTE(populacCao* amostra);
 #endif // DEFINICOES_H_INCLUDED

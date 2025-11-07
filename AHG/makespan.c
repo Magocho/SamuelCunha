@@ -124,10 +124,8 @@ int makespan_de_uma_sequencia(int* seq_tarefa, int** matriz_suporte, Cabecca_Mat
             suporte[index_matriz(i, j, TT)] = retorna_valor_da_matriz(aux, i, seq_tarefa[j]) + max(suporte[index_matriz(i - 1, j, TT)], suporte[index_matriz(i, j - 1, TT)]);
         }
     }
-
     return suporte[index_matriz(i - 1, j - 1, TT)];
 }
-
 
 void imprime_matriz_TESTE(Cabecca_Matriz** Matriz){
     Tarefa_Matriz* aux = (*Matriz)->fila_tarefa;

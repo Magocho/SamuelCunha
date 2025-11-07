@@ -31,6 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="Roleta_Vida.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="cromossomos.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -40,6 +43,9 @@
 		<Unit filename="gene.c">
 			<Option compilerVar="CC" />
 			<Option target="&lt;{~None~}&gt;" />
+		</Unit>
+		<Unit filename="leitor_txt.c">
+			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />

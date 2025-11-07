@@ -41,6 +41,7 @@ individuo* cria_aleatoriamente(int numero_de_tarefas){  // DISCUTIR ESSA FUNÇÃO!
                                                     // https://benpfaff.org/writings/clc/shuffle.html
     novo->genes = malloc(numero_de_tarefas * sizeof(int));
     novo->fitness = NAO_TEM_FITNESS_AINDA;
+    novo->porcentagem = 0.0;
 
     assert(novo != NULL); // Tomara que isso nunca aconteça.
 
@@ -71,7 +72,7 @@ void confirma_crossover(individuo* novo, int lim_inferior, int lim_superior, int
     for(i = lim_inferior; i < lim_superior; i++){
         ref = novo->genes[i];
 
-        if(suporte[ref] > 0){
+        if(suporte[ref] > 1){
             for(j = 0; j < num_tarefa; j++){
                 if(suporte[j] == 0){
                     novo->genes[i] = j;
@@ -82,6 +83,7 @@ void confirma_crossover(individuo* novo, int lim_inferior, int lim_superior, int
             }
         }
     }
+}
 
     // A PRIMEIRA NÃO FUNCIONOU
 
@@ -129,23 +131,33 @@ void confirma_crossover(individuo* novo, int lim_inferior, int lim_superior, int
         }
     }
     */
-}
 
 
-individuo* cruzamento(individuo* pai, individuo* mae, int numero_de_tarefa){ // Mudar isso, pensar numa forma melhor de passar o número de tarefa
+individuo** cruzamento(individuo* pai, individuo* mae, int numero_de_tarefa){ // Mudar isso, pensar numa forma melhor de passar o número de tarefa
 
-    individuo* filhos = malloc(FILHOS_POR_CROSSOVER * sizeof(individuo));
+    individuo** filhos = malloc(FILHOS_POR_CROSSOVER * sizeof(individuo*));
 
+    assert(pai != NULL && mae != NULL);
     assert(filhos != NULL);
 
+    int i;
+
+    for(i = 0; i < FILHOS_POR_CROSSOVER; i++){
+        filhos[i] = malloc(sizeof(individuo));
+        assert(filhos[i] != NULL);
+        filhos[i]->genes = malloc(numero_de_tarefa * sizeof(int));
+        assert(filhos[i]->genes != NULL);
+    }
+
     //********************************************************* ---> Isso só permite dois filhos por cruzamento...
-    filhos[0].genes = malloc(numero_de_tarefa * sizeof(int));
-    filhos[1].genes = malloc(numero_de_tarefa * sizeof(int));
+    //filhos[0].genes = malloc(numero_de_tarefa * sizeof(int));
+    //filhos[1].genes = malloc(numero_de_tarefa * sizeof(int));
     //*********************************************************
+    //assert(filhos[0].genes != NULL);
+    //assert(filhos[1].genes != NULL);
 
     int lim_superior = rand() % numero_de_tarefa;
     int lim_inferior = rand() % numero_de_tarefa;
-    int i;
 
 
     if(lim_inferior > lim_superior){
@@ -155,29 +167,32 @@ individuo* cruzamento(individuo* pai, individuo* mae, int numero_de_tarefa){ // 
     }
 
     if(lim_inferior == lim_superior){
-        if(lim_superior + 1 == numero_de_tarefa)
+        if(lim_superior < numero_de_tarefa - 1){
+            lim_superior++;
+        }
+        else if(lim_inferior > 0){
             lim_inferior--;
-        else lim_superior++;
+        }
     }
 
 
     for(i = 0; i < lim_inferior; i++){
-        filhos[0].genes[i] = pai->genes[i];
-        filhos[1].genes[i] = mae->genes[i];
+        filhos[0]->genes[i] = pai->genes[i];
+        filhos[1]->genes[i] = mae->genes[i];
     }
 
     for(i = lim_inferior; i < lim_superior; i++){
-        filhos[0].genes[i] = mae->genes[i];
-        filhos[1].genes[i] = pai->genes[i];
+        filhos[0]->genes[i] = mae->genes[i];
+        filhos[1]->genes[i] = pai->genes[i];
     }
 
     for(i = lim_superior; i < numero_de_tarefa; i++){
-        filhos[0].genes[i] = pai->genes[i];
-        filhos[1].genes[i] = mae->genes[i];
+        filhos[0]->genes[i] = pai->genes[i];
+        filhos[1]->genes[i] = mae->genes[i];
     }
 
-    confirma_crossover(&filhos[0], lim_inferior, lim_superior, numero_de_tarefa);
-    confirma_crossover(&filhos[1], lim_inferior, lim_superior, numero_de_tarefa);
+    confirma_crossover(filhos[0], lim_inferior, lim_superior, numero_de_tarefa);
+    confirma_crossover(filhos[1], lim_inferior, lim_superior, numero_de_tarefa);
 
     return filhos;
 }
@@ -195,6 +210,11 @@ void mutacCao(individuo* teste, int numero_de_tarefa){
     int aux = teste->genes[mutante_UM];
     teste->genes[mutante_UM] = teste->genes[mutante_DOIS];
     teste->genes[mutante_DOIS] = aux;
+}
+
+void mata_alguem(individuo* quem_quero_matar){
+    free(quem_quero_matar->genes);
+    free(quem_quero_matar);
 }
 
 void imprime_individo_TESTE(individuo* teste, int numero_de_tarefa){
