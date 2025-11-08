@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1762267817 source:c:\users\aluno\documents\ahg\ahg\main.c
+	"definicoes.h"
+
+1762267678 c:\users\aluno\documents\ahg\ahg\definicoes.h
+	<time.h>
+	<stdio.h>
+	<stdlib.h>
+
+1762267770 source:c:\users\aluno\documents\ahg\ahg\makespan.c
+	"definicoes.h"
+
+1762482904 source:c:\users\lucas\documents\github\samuelcunha\ahg\makespan.c
+	"definicoes.h"
+
+1762482355 c:\users\lucas\documents\github\samuelcunha\ahg\definicoes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<math.h>
+	<time.h>
+	<assert.h>
+
+1762483147 source:c:\users\lucas\documents\github\samuelcunha\ahg\main.c
+	"definicoes.h"
+
+1762481953 source:c:\users\lucas\documents\github\samuelcunha\ahg\cromossomos.c
+	"definicoes.h"
+
+1762482459 source:c:\users\lucas\documents\github\samuelcunha\ahg\roleta_vida.c
+	"definicoes.h"
+
+1762475532 source:c:\users\lucas\documents\github\samuelcunha\ahg\leitor_txt.c
+	"definicoes.h"
+
+1762613457 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\leitor_txt.c
+	"definicoes.h"
+
+1762614750 c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\definicoes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<math.h>
+	<time.h>
+	<assert.h>
+
+1762614633 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\main.c
+	"definicoes.h"
+
+1762614717 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\makespan.c
+	"definicoes.h"
+
+1762611708 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\roleta_vida.c
+	"definicoes.h"
+
+1762612108 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\cromossomos.c
+	"definicoes.h"
+
+1762615765 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\debug.c
+	"definicoes.h"
+
