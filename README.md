@@ -73,9 +73,9 @@ int SamuelCunha_AHG(int número_de_gerações, int tamanho_da_população){
 
 - Definir um plano de população melhor que []
 
-    > "O poder da população é **imensuravelmente** superior ao da memória heap." (de outra forma) Mi chegou a DeZ, morri tode mundE agora.
-    >
-    > — *Malthus, quando inquerido do preço do coco em Ubatuba*
+> "O poder da população é **imensuravelmente** superior ao da memória heap." (de outra forma) Mi chegou a DeZ, morri tode mundE agora.
+>
+> — *Malthus, quando inquerido do preço do coco em Ubatuba*
 
     - Não tenho nenhuma sugestão...
 
