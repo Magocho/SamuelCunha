@@ -106,7 +106,7 @@ int makespan_de_uma_sequencia(int* seq_tarefa, int** matriz_suporte, Cabecca_Mat
     int* suporte = *matriz_suporte;
     Tarefa_Matriz* aux = (*Matriz)->fila_tarefa;
     int TT = (*Matriz)->total_de_tarefa;
-    int i, j;
+    int i, j = 1;
     for(i = 0; i < (*Matriz)->total_de_maquina; i++)
         suporte[index_matriz(i, 0, TT)] = retorna_valor_da_matriz(aux, i, seq_tarefa[0]);
 

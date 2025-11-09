@@ -55,7 +55,6 @@ int main(){
         free(aux_matriz);
         libera_Matriz_toda(&mMatriz);
     }
-
     else{
         libera_Matriz_toda(&mMatriz);
         if(char_resposta == 'D' || char_resposta == 'd'){
