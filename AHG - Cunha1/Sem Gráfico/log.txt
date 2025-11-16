@@ -31,3 +31,26 @@ Array
 213 -> 4 -> 50%
 
 213  x 231 ->
+
+//**************************************** VERSÃO ANTIGA MAKESPAN (mudada 15/11)
+
+int makespan_de_uma_sequencia(int* seq_tarefa, int** matriz_suporte, Cabecca_Matriz** Matriz){
+    int* suporte = *matriz_suporte;
+    Tarefa_Matriz* aux = (*Matriz)->fila_tarefa;
+    int TT = (*Matriz)->total_de_tarefa;
+    int i, j = 1;
+    for(i = 0; i < (*Matriz)->total_de_maquina; i++)
+        suporte[index_matriz(i, 0, TT)] = retorna_valor_da_matriz(aux, i, seq_tarefa[0]);
+
+    for(i = 1; i < (*Matriz)->total_de_tarefa; i++)
+        suporte[index_matriz(0, i, TT)] = retorna_valor_da_matriz(aux, 0, seq_tarefa[i]) + suporte[index_matriz(0, i - 1, TT)];
+
+    for(i = 1; i < (*Matriz)->total_de_maquina; i++){
+        for(j = 1; j < (*Matriz)->total_de_tarefa; j++){
+            suporte[index_matriz(i, j, TT)] = retorna_valor_da_matriz(aux, i, seq_tarefa[j]) + max(suporte[index_matriz(i - 1, j, TT)], suporte[index_matriz(i, j - 1, TT)]);
+        }
+    }
+    return suporte[index_matriz(i - 1, j - 1, TT)];
+}
+
+//********************************************

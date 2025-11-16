@@ -106,19 +106,25 @@ int makespan_de_uma_sequencia(int* seq_tarefa, int** matriz_suporte, Cabecca_Mat
     int* suporte = *matriz_suporte;
     Tarefa_Matriz* aux = (*Matriz)->fila_tarefa;
     int TT = (*Matriz)->total_de_tarefa;
+    int MM = (*Matriz)->total_de_maquina;
     int i, j = 1;
-    for(i = 0; i < (*Matriz)->total_de_maquina; i++)
-        suporte[index_matriz(i, 0, TT)] = retorna_valor_da_matriz(aux, i, seq_tarefa[0]);
 
-    for(i = 1; i < (*Matriz)->total_de_tarefa; i++)
-        suporte[index_matriz(0, i, TT)] = retorna_valor_da_matriz(aux, 0, seq_tarefa[i]) + suporte[index_matriz(0, i - 1, TT)];
+    suporte[index_matriz(0, 0, TT)] = retorna_valor_da_matriz(aux, 0, seq_tarefa[0]);
 
-    for(i = 1; i < (*Matriz)->total_de_maquina; i++){
-        for(j = 1; j < (*Matriz)->total_de_tarefa; j++){
+    for(i = 1; i < MM; i++)
+        suporte[index_matriz(i, 0, TT)] = retorna_valor_da_matriz(aux, i, seq_tarefa[0]) + suporte[index_matriz(i - 1, 0, TT)];
+
+
+    for(j = 1; j < TT; j++)
+        suporte[index_matriz(0, j, TT)] = retorna_valor_da_matriz(aux, 0, seq_tarefa[j]) + suporte[index_matriz(0, j - 1, TT)];
+
+    for(i = 1; i < MM; i++){
+        for(j = 1; j < TT; j++){
             suporte[index_matriz(i, j, TT)] = retorna_valor_da_matriz(aux, i, seq_tarefa[j]) + max(suporte[index_matriz(i - 1, j, TT)], suporte[index_matriz(i, j - 1, TT)]);
         }
     }
-    return suporte[index_matriz(i - 1, j - 1, TT)];
+
+    return suporte[index_matriz(MM - 1, TT - 1, TT)];
 }
 
 void imprime_matriz_TESTE(Cabecca_Matriz** Matriz){
