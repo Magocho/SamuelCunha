@@ -49,6 +49,9 @@ int SamuelCunha_AHG(int número_de_gerações, int tamanho_da_população){
             geração++;
         }
         else reprodução(grupo);
+
+        if(lucky_number)      // Consideramos 0,1% de chance de mutação.
+            mutacCao(grupo); // (TALVEZ) seja um valor muito grande ainda...
     }
 
     return grupo->melhor_encontrado;
@@ -59,31 +62,46 @@ int SamuelCunha_AHG(int número_de_gerações, int tamanho_da_população){
 
 - ~~FUNCIONAR~~ [x]
 
-    > isso SEMPRE funcionou sim, *ink ink*
+    > isso SEMPRE funcionou sim, *ink ink* 
 
-- Discutir a MUTAÇÃO (*Queremos mutação?*) []
+- Discutir a MUTAÇÃO (*Queremos mutação?*) [x]
 
     - SIM
 
         > Ficará mais *geneticamente heurístico* o algoritmo e a função já está pronta.
 
-    - NÃO 
+    - ~~NÃO~~
         
-        > É menos trabalhoso e não teremos nenhuma *surpresa* no meio do caminho.
+        > ~~É menos trabalhoso e não teremos nenhuma *surpresa* no meio do caminho.~~
+    <details>
+    <summary>obs. 1</summary>
+    
+    R: **É axiomático a mutação no AHG exigido pelo problema proposto.**
+    </details>
 
-- Definir um plano de população melhor que []
+- Definir um plano de população melhor que [x]
 
-> "O poder da população é **imensuravelmente** superior ao da memória heap." (de outra forma) Mi chegou a DeZ, morri tode mundE agora.
->
-> — *Malthus, quando inquerido do preço do coco em Ubatuba*
-
-    - Não tenho nenhuma sugestão...
-
-- Implementar algumas funções para escrita em .txt que permita exportar para *excel* []
-
-    > Para quê isso? Só anotar no papel e calcular o desvio padrão na mão! No BR basta colocar 19 alunos em um sala...
+    > "O poder da população é **imensuravelmente** superior ao da memória heap." (de outra forma) Mi chegou a DeZ, morri tode mundE agora.
     >
-    > Em 5% dos casos todos morrem, 30% dão a resposta errada e em 65% perdemos 10, mas temos um quase certo! (Só colocar 0 no final, eles esquecem a vírgula).
+    > — *Malthus, quando inquerido do preço do coco em Ubatuba*
+
+    - ~~Não tenho nenhuma sugestão...~~
+    <details>
+    <summary>obs. 2</summary>
+        
+    R: No contexto do problema proposto o array utilizado é ***satisfatório***. Mas, implementações mais elegantes podem utilizar esquema de Árvores (principalmente a B) e pseudo-Hashtable (mais uma gambiarra com matriz esparsa) para se tornar algo mais *dinâmico*.
+
+    > Além de utilizar algum sistema de *enum / tag* e limites para evitar afunilamento precoce ou ultraprocessamento da população.
+    >
+    > — *Uma pessoa muito mais inteligente que quem digitou isso...*
+    </details>
+
+- Implementar algumas funções para escrita em .txt que permita exportar para *excel* [x]
+
+    <details>
+    <summary>obs. 3</summary>
+    R: Foi na mão mesmo. Contudo para qualquer análise rigoroso é vital progamar as funções (principalmente se as tarefas passarem de 200).
+    </details>
 
 ## O que pode melhorar?
 
@@ -92,46 +110,46 @@ int SamuelCunha_AHG(int número_de_gerações, int tamanho_da_população){
 - ~~O CÓDIGO INTEIRO... Por que não escrevi isso em Python?~~
 
 - Tipo de dado da população
+    
+    <details>
+    <summary>Utilizar unsigned long long talvez? (Passeie comigo por um momento)</summary>
 
-    - Utilizar unsigned long long talvez? (Passeie comigo por um momento)
+        Um int (que se usa no momento) ocupa no momento 4 byte — em uma arquitetura de 64 sim, sim...
 
-          Um int (que se usa no momento) ocupa no momento 4 byte — em uma arquitetura de 64 sim, sim...
+    Logo, se uma sequência ocupar por exemplo 4 tarefas, precisamos de 4 int que seria 4 * 16 = 64 bit ótimo!
 
-            Logo, se uma sequência ocupar por exemplo 4 tarefas, precisamos de 4 int que seria 4 * 16 = 64 bit ótimo!
+    Mas, se representáarmos ela por bit? 
 
-            Mas, se representáarmos ela por bit? 
+        Bem (uma péssima solução, pois delirei isso 08/11 às 23h) podemos fazer uma matriz:
 
-            Bem (uma péssima solução, pois delirei isso 08/11 às 23h) podemos fazer uma matriz:
-
-                pos   1 2 3 4 Tarefa
+        pos   1 2 3 4 Tarefa
         
-                (1)   0 0 0 1 -> Tarefa [4] está em 1
+        (1)   0 0 0 1 -> Tarefa [4] está em 1
+        (2)   0 0 1 0 -> Tarefa [3] está em 3
+        (3)   0 1 0 0 -> Tarefa [2] está em 2
+        (4)   1 0 0 0 -> Tarefa [1] está em 4 -- Assim: 4321 (seria esse número na sequência)
+
+        Com isso podemos gerar todas as combinações, assim qual o tamanho que ocupa? 16 bit!
+
+        Isso é, 1/4 do tamanho em bit do int.
+    
+    SE, (grande se esse) assumirmos que é sempre verdade a viagem acima, podemos dizer que:
+    
+        Quando for para N em int, sua representação em bit será N/4. De forma grossa, poderimas ter uma população 4 vezes maior!
         
-                (2)   0 0 1 0 -> Tarefa [3] está em 3
-        
-                (3)   0 1 0 0 -> Tarefa [2] está em 2
-        
-                (4)   1 0 0 0 -> Tarefa [1] está em 4 -- Assim: 4321 (seria esse número na sequência)
+    Observações (Na verdade problemas mesmo dessa ideia)
 
-            Com isso podemos gerar todas as combinações, assim qual o tamanho que ocupa? 16 bit!
-
-            Isso é, 1/4 do tamanho em bit do int.
-
-            SE, (grande se esse) assumirmos que é sempre verdade a viagem acima, podemos dizer que:
-
-            Quando for para N em int, sua representação em bit será N/4. De forma grossa, poderimas ter uma população 4 vezes maior!
-        
-        Observações (Na verdade problemas mesmo dessa ideia)
-
-        1. A quantidade de operações seria *possivelmente* maior (Tenho quase certeza disso)
+    1. A quantidade de operações seria *possivelmente* maior (Tenho quase certeza disso)
             
-            1. E também, sua progamação é mais trabalhosa e difícil que a de ints
+        1. E também, sua progamação é mais trabalhosa e difícil que a de ints
 
-        2. O aumento **real** da população haverá de ser descoberta na prática, pois talvez ocorra alguma limitação que desconheço.
+    2. O aumento **real** da população haverá de ser descoberta na prática, pois talvez ocorra alguma limitação que desconheço.
 
-        3. TALVEZ (grande talvez esse) nem sempre em AHG:
+    3. TALVEZ (grande talvez esse) nem sempre em AHG:
             
-            > MAIOR POPULAÇÃO == MELHOR RESULTADO (OU MESMO CHANCE DE UM)
+        > MAIOR POPULAÇÃO == MELHOR RESULTADO (OU MESMO CHANCE DE UM)
+        
+    </details>
 
 - Talvez, um *hashtable*? (Sempre uma opção)
 

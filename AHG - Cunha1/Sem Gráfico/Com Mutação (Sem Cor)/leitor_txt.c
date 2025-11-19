@@ -44,7 +44,7 @@ char* retorna_instancia(int num){
         break;
     case 8:
         caso = "car8";
-         break;
+        break;
     case 9:
         caso = "hel1";
         break;
@@ -119,11 +119,11 @@ char* retorna_instancia(int num){
 }
 
 bool menu_nome(int resposta){
-    printf(CINZA"\t> Qual instancia deseja testar?\n");
-    printf(CINZA"\t ["ROXO" 1 "CINZA"]"BRANCO" car\n");
-    printf(CINZA"\t ["ROXO" 2 "CINZA"]"BRANCO" hel\n");
-    printf(CINZA"\t ["ROXO" 3 "CINZA"]"BRANCO" reC\n");
-    printf(CINZA"\t>> obs. Veja flowshop1.txt para mais detalhes.\n\t> "VERDE);
+    printf("\t> Qual instancia deseja testar?\n");
+    printf("\t [ 1 ] car\n");
+    printf("\t [ 2 ] hel\n");
+    printf("\t [ 3 ] reC\n");
+    printf("\t>> obs. Veja flowshop1.txt para mais detalhes.\n\t> ");
 
     if(resposta == 1 || resposta == 2 || resposta == 3)
         return false;
@@ -136,49 +136,49 @@ bool menu_tipo(int resposta){
     case -7:
         return false;
     case -1:
-        printf(CINZA"\t> "AMARELO"* car *"CINZA" Qual tipo deseja testar?\n");
+        printf("\t> * car * Qual tipo deseja testar?\n");
         for(i = 1; i < 9; i++){
             if(i == 1)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" car%d (%d x %d)\n", i, i, 11, 5);
+                printf("\t [ %d ] car%d (%d x %d)\n", i, i, 11, 5);
             else if(i == 2)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" car%d (%d x %d)\n", i, i, 13, 4);
+                printf("\t [ %d ] car%d (%d x %d)\n", i, i, 13, 4);
             else if(i == 3)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" car%d (%d x %d)\n", i, i, 12, 5);
+                printf("\t [ %d ] car%d (%d x %d)\n", i, i, 12, 5);
             else if(i == 4)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" car%d (%d x %d)\n", i, i, 14, 4);
+                printf("\t [ %d ] car%d (%d x %d)\n", i, i, 14, 4);
             else if(i == 5)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" car%d (%d x %d)\n", i, i, 10, 6);
+                printf("\t [ %d ] car%d (%d x %d)\n", i, i, 10, 6);
             else if(i == 6)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" car%d (%d x %d)\n", i, i, 8, 9);
-            else printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" car%d (%d x %d)\n", i, i, i, i);
+                printf("\t [ %d ] car%d (%d x %d)\n", i, i, 8, 9);
+            else printf("\t [ %d ] car%d (%d x %d)\n", i, i, i, i);
         }
         if(resposta > 0 && resposta < 9)
             return false;
         break;
     case -2:
-        printf(CINZA"\t> "AMARELO"* hel *"CINZA" Qual tipo deseja testar?\n");
-        printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" hel%d (100 x 10)\n", 9, 1);
-        printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" hel%d (20 x 10)\n", 10, 2);
+        printf("\t> * hel * Qual tipo deseja testar?\n");
+        printf("\t [ %d ] hel%d (100 x 10)\n", 9, 1);
+        printf("\t [ %d ] hel%d (20 x 10)\n", 10, 2);
         if(resposta > 8 && resposta < 11)
             return false;
         break;
     case -3:
         j = 11;
-        printf(CINZA"\t> "AMARELO"* reC *"CINZA" Qual tipo deseja testar?\n");
+        printf("\t> * reC * Qual tipo deseja testar?\n");
         for(i = 1; i < 42; i = i + 2){
             if(i <= 5)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" reC0%d (20 x 5)\n", j, i);
+                printf("\t [ %d ] reC0%d (20 x 5)\n", j, i);
             else if(i <= 11)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" reC%d (20 x 10)\n", j, i);
+                printf("\t [ %d ] reC%d (20 x 10)\n", j, i);
             else if(i <= 17)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" reC%d (20 x 15)\n", j, i);
+                printf("\t [ %d ] reC%d (20 x 15)\n", j, i);
             else if(i <= 23)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" reC%d (30 x 10)\n", j, i);
+                printf("\t [ %d ] reC%d (30 x 10)\n", j, i);
             else if(i <= 29)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" reC%d (30 x 15)\n", j, i);
+                printf("\t [ %d ] reC%d (30 x 15)\n", j, i);
             else if(i <= 35)
-                printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" reC%d (50 x 10)\n", j, i);
-            else printf(CINZA"\t ["ROXO" %d "CINZA"]"BRANCO" reC%d (75 x 20)\n", j, i);
+                printf("\t [ %d ] reC%d (50 x 10)\n", j, i);
+            else printf("\t [ %d ] reC%d (75 x 20)\n", j, i);
 
             j++;
         }
@@ -187,7 +187,7 @@ bool menu_tipo(int resposta){
         break;
     }
 
-    printf(CINZA"\t>> obs. Para voltar digite -7.\n\t> "VERDE);
+    printf("\t>> obs. Para voltar digite -7.\n\t> ");
 
     return true;
 }
@@ -233,7 +233,7 @@ int menu_de_selecao(){
         if(menu_nome(resposta)){
             if(!le_inteiro(&resposta)){
                 system("cls");
-                printf(VERMELHO"\t> ERRO: insira um valor valido!\n");
+                printf("\t> ERRO: insira um valor valido!\n");
                 continue;
             }
         }
@@ -242,7 +242,7 @@ int menu_de_selecao(){
         if(menu_tipo(aux)){
             if(!le_inteiro(&resposta)){
                 system("cls");
-                printf(VERMELHO"\t> ERRO: insira um valor valido!\n");
+                printf("\t> ERRO: insira um valor valido!\n");
                 continue;
             }
             deu_certo = eh_valido_tipo(aux, resposta);
@@ -255,10 +255,9 @@ int menu_de_selecao(){
 
         if(!deu_certo){
             system("cls");
-            printf(VERMELHO"\t> ERRO: insira um valor valido!\n");
+            printf("\t> ERRO: insira um valor valido!\n");
         }
     }
-    printf(CINZA);
     return resposta;
 }
 
@@ -283,12 +282,12 @@ bool ler_instancia(char* caso, Cabecca_Matriz** mMatriz){
             if(sscanf(linha, " instance %s", nome_atual) == 1 && strcmp(nome_atual, caso) == 0){
                 printf("   +-----------------------------------------------------+\n");
                 encontrou = true;
-                printf(BRANCO"\t> Instancia:"AMARELO" %s "BRANCO"\n", caso);
+                printf("\t> Instancia: %s \n", caso);
 
                 fgets(linha, sizeof(linha), arq);
                 fgets(linha, sizeof(linha), arq);
                 fgets(linha, sizeof(linha), arq);
-                printf("\t> Descricao:"CINZA"%s", linha);
+                printf("\t> Descricao: %s", linha);
 
                 if(!fgets(linha, sizeof(linha), arq)){
                     fclose(arq);
@@ -300,7 +299,7 @@ bool ler_instancia(char* caso, Cabecca_Matriz** mMatriz){
                     return false;
                 }
 
-                printf(BRANCO"\t> Total de tarefas:"ROXO" %d "BRANCO"\n\t> Total de maquinas:"ROXO" %d\n\n"CINZA, nTarefa, nMaquina);
+                printf("\t> Total de tarefas: %d \n\t> Total de maquinas: %d\n\n", nTarefa, nMaquina);
 
                 assert(*mMatriz != NULL);
                 (*mMatriz)->total_de_maquina = nMaquina;
@@ -372,34 +371,32 @@ bool ler_instancia(char* caso, Cabecca_Matriz** mMatriz){
 
 int determinar_dados_populacCao(bool eh_amostra_inicial){
     int i = 0;
-    printf(CINZA);
+
     if(eh_amostra_inicial){
-        printf("\n\t> Diga o valor da populacao inicial:\n"AZUL"\t[IMPORTANTE]\n");
-        printf(AZUL"\t> "CINZA"Note que se o valor escolhido:"AMARELO" N > N!"CINZA", teremos todos os valores ou ocuparemos toda a memoria!\n");
-        printf(AZUL"\t> "CINZA"Para a reproducao ser valida:"AMARELO" N >= 2"CINZA", pois nao da para se cruzar sozinho!\n\t> "VERDE);
+        printf("\n\t> Diga o valor da populacao inicial:\n\t[IMPORTANTE]\n");
+        printf("\t> Note que se o valor escolhido: N > N!, teremos todos os valores ou ocuparemos toda a memoria!\n");
+        printf("\t> Para a reproducao ser valida: N > 2, pois nao da para se cruzar sozinho!\n\t> ");
         while(i < 2){
             if(scanf(" %d", &i) != 1){
-                printf(VERMELHO"\t> ERRO: insira um valor valido!\n"CINZA"\t> "VERDE);
+                printf("\t> ERRO: insira um valor valido!\n\t> ");
                 getchar();
             }
-            else if(i < 2) printf(CINZA"\t> "VERDE);
+            else if(i < 2) printf("\t> ");
         }
     }
     else{
-        printf("\n\t> Diga quantas geracoes ocorrera:\n"AZUL"\t[IMPORTANTE]\n");
-        printf(AZUL"\t> "CINZA"Note que se o valor escolhido for muito grande, demorara mais!\n");
-        printf(AZUL"\t> "CINZA"Para ser valida:"AMARELO" N > 1"CINZA", pois se nao so se considera a geracao original!\n\t> "VERDE);
+        printf("\n\t> Diga quantas geracoes ocorrera:\n\t[IMPORTANTE]\n");
+        printf("\t> Note que se o valor escolhido for muito grande, demorara mais!\n");
+        printf("\t> Para ser valida: N > 1, pois se nao so se considera a geracao original!\n\t> ");
         while(i < 2){
-            //printf(CINZA"\t> "VERDE);
             if(scanf(" %d", &i) != 1){
-                printf(VERMELHO"\t> ERRO: insira um valor valido!\n"CINZA"\t> "VERDE);
+                printf("\t> ERRO: insira um valor valido!\n\t> ");
                 getchar();
             }
-            else if(i < 2) printf(CINZA"\t> "VERDE);
+            else if(i < 2) printf("\t> ");
         }
     }
 
-    printf(CINZA);
     return i;
 }
 
@@ -413,5 +410,5 @@ void titulo(){
         printf("-");
     printf("+\n");
 
-    //printf("\tFeito por:\n\n");
+    printf("\n\tFeito por: (Grupo 4)\n");
 }

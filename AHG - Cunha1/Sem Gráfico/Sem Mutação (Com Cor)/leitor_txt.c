@@ -26,21 +26,25 @@ char* retorna_instancia(int num){
         break;
     case 2:
         caso = "car2";
+        break;
     case 3:
         caso = "car3";
         break;
     case 4:
         caso = "car4";
+        break;
     case 5:
         caso = "car5";
         break;
     case 6:
         caso = "car6";
+        break;
     case 7:
         caso = "car7";
         break;
     case 8:
         caso = "car8";
+        break;
     case 9:
         caso = "hel1";
         break;

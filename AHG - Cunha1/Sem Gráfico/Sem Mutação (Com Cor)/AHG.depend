@@ -34,7 +34,7 @@
 1762475532 source:c:\users\lucas\documents\github\samuelcunha\ahg\leitor_txt.c
 	"definicoes.h"
 
-1762613457 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\leitor_txt.c
+1763249925 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\leitor_txt.c
 	"definicoes.h"
 
 1762614750 c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\definicoes.h
@@ -46,13 +46,13 @@
 	<time.h>
 	<assert.h>
 
-1762614633 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\main.c
+1763250870 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\main.c
 	"definicoes.h"
 
-1762614717 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\makespan.c
+1763250147 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\makespan.c
 	"definicoes.h"
 
-1762611708 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\roleta_vida.c
+1763249925 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\roleta_vida.c
 	"definicoes.h"
 
 1762612108 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\cromossomos.c
@@ -61,10 +61,10 @@
 1762615765 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\debug.c
 	"definicoes.h"
 
-1762612108 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\com gráfico\cromossomos.c
+1762612108 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\sem mutação (com cor)\cromossomos.c
 	"definicoes.h"
 
-1762614750 c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\com gráfico\definicoes.h
+1762614750 c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\sem mutação (com cor)\definicoes.h
 	<stdio.h>
 	<stdlib.h>
 	<string.h>
@@ -73,27 +73,18 @@
 	<time.h>
 	<assert.h>
 
-1762615765 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\com gráfico\debug.c
+1762615765 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\sem mutação (com cor)\debug.c
 	"definicoes.h"
 
-1763513748 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\com gráfico\leitor_txt.c
+1763250147 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\sem mutação (com cor)\makespan.c
 	"definicoes.h"
 
-1763250750 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\com gráfico\main.c
-	"definicoes_SDL.h"
-
-1763250627 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\com gráfico\makespan.c
+1763249925 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\sem mutação (com cor)\roleta_vida.c
 	"definicoes.h"
 
-1762611708 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\com gráfico\roleta_vida.c
+1763513685 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\sem mutação (com cor)\leitor_txt.c
 	"definicoes.h"
 
-1762706002 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\com gráfico\sdl_gene.c
-	"definicoes_SDL.h"
-
-1762703976 c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\com gráfico\definicoes_sdl.h
+1763250885 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\sem mutação (com cor)\main.c
 	"definicoes.h"
-	<SDL3/SDL.h>
-	<SDL3_ttf/SDL_ttf.h>
-	<SDL3_image/SDL_image.h>
 

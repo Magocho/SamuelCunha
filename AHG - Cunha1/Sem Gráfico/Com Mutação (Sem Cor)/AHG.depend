@@ -61,3 +61,30 @@
 1762615765 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\debug.c
 	"definicoes.h"
 
+1763512979 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\com mutação (sem cor)\cromossomos.c
+	"definicoes.h"
+
+1763513014 c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\com mutação (sem cor)\definicoes.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+	<math.h>
+	<time.h>
+	<assert.h>
+
+1763504249 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\com mutação (sem cor)\debug.c
+	"definicoes.h"
+
+1763504170 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\com mutação (sem cor)\makespan.c
+	"definicoes.h"
+
+1763504317 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\com mutação (sem cor)\roleta_vida.c
+	"definicoes.h"
+
+1763504897 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\com mutação (sem cor)\leitor_txt.c
+	"definicoes.h"
+
+1763513250 source:c:\users\lucas\documents\github\samuelcunha\ahg - cunha1\sem gráfico\com mutação (sem cor)\main.c
+	"definicoes.h"
+
